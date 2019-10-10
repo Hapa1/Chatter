@@ -19,7 +19,7 @@ const Chat = ({ location }) => {
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
     const ENDPOINT = 'localhost:5000';
-
+    //const ENDPOINT = 'https://hapachat.herokuapp.com/';
     useEffect(() => { //runs when component renders 
         //const data = queryString.parse(location.search);
         const { name, room } = queryString.parse(location.search); //location is from reactrouter, location.search is a url i.e. ?name=1&room=1
