@@ -44,7 +44,7 @@ const Splash = () => {
                         //setJoinChatButtonDocument(document.getElementById('joinChatButton'))
                         console.log(document.getElementById('optionMenu'))
                         //setOptionCreateChatButtonDocument(document.getElementById('createChatButton'))
-                        joinChatButtonDocument.style.animationName = "expand";
+                        //joinChatButtonDocument.style.animationName = "expand";
                         }
                     }
                     type="submit">JOIN CHAT
