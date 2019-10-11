@@ -52,8 +52,6 @@ const Splash = () => {
                 <button style={{backgroundColor:'#8bc34a'}}className={'createChatButton'} onClick={e=>setOption('create')} type="submit">CREATE CHAT</button>
                 
             </div>
-            {  }
-            {  }
             {display}
         </div>
         

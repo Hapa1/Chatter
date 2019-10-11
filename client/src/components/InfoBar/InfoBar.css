@@ -30,6 +30,7 @@
   .modalContainer {
     position: absolute;
     left: 50%;
+    width: 25%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
     

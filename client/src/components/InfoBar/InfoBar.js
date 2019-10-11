@@ -41,31 +41,14 @@ const InfoBar = ( {room} ) => {
         </div>
         <div className="rightInnerContainer">
             
-            <button onClick={ e => {activateModal()}}>Clickme</button>
-            <input type="text" onChange={(event) => { console.log(event.target.value); setRecipient(event.target.value)}}/>
-            
-            
+            <div style={{color:'white'}} onClick={ e => {activateModal()}}>INVITE USERS</div>
             <div id='modalBackground' onClick={e=>{deactivateModal()}}
             className='modalBackground'>
-            
             </div>
             <div id='modalContainer' className='modalContainer'>
-                <Modal/>
+                <Modal room={room}/>
             </div>     
-            
-            
-            <button type="submit" onClick={ e => {
-                        //(!recipient) ? e.preventDefault() : null
-                        e.preventDefault()
-                        axios.get(`http://localhost:5000/send`, {
-                            params: {
-                                recipient: recipient,
-                                room: room,
-                            }
-                        })
-                    }    
-            } action={`/send/${recipient}`}>>Submit</button>
-            
+
             <a href="/"><img src={closeIcon} alt="close icon" /></a>
         </div>
     </div>

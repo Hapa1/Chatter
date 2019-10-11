@@ -9,17 +9,17 @@ router.get('/', (req,res) => {
 });
 
 router.get('/send', (req,res) => {
-    let recipient = req.params.recipient
+    let recipient = req.query.recipient
     console.log("que",req.query.room);
     //if(!recipient){
     //    return res.status(400).send({error:true,message:'Please provide an email'})
     //}
     //console.log("body",req.body)
-    console.log("Sending mail")
+    console.log("Sending mail to",recipient)
     sgMail.setApiKey(sendGridAPI);
     const msg = {
-    to: req.query.recipient,
-    from: 'The Hapachat team',
+    to: recipient,
+    from: 'noreply@hapachat.com',
     subject: 'You have received an invite',
     html: `<center>
     <p>
@@ -35,8 +35,20 @@ router.get('/send', (req,res) => {
     </a>
     </center>`,
     };
-    sgMail.send(msg);
-    res.send("success");
+    sgMail.send(msg).then(() => {
+      //Celebrate
+    }).catch(error => {
+
+      //Log friendly error
+      console.error(error.toString());
+  
+      //Extract error msg
+      const {message, code, response} = error;
+  
+      //Extract response msg
+      const {headers, body} = response;
+    });
+
     
 });
 
