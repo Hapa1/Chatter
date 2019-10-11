@@ -26,3 +26,43 @@
   .onlineIcon {
     margin-right: 5%;
   }
+
+  .modalContainer {
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    
+    background-color:white;
+    border-radius: 5px;
+    visibility: hidden;
+    animation: '';
+    z-index: 4;
+}
+
+.modalAnimation{
+    
+}
+
+.modalBackground{
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background-color:black;
+    opacity: 0.6;
+    width:100%;
+    height:100%;
+    z-index: 3;
+    visibility: hidden;
+    animation: '';
+}
+
+@keyframes backgroundfadein {
+    from { opacity: 0; }
+    to   { opacity: .6; }
+  }
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

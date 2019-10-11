@@ -19,8 +19,8 @@ router.get('/send', (req,res) => {
     sgMail.setApiKey(sendGridAPI);
     const msg = {
     to: req.query.recipient,
-    from: 'reeeeeeeeee@example.com',
-    subject: 'I LOVE U',
+    from: 'The Hapachat team',
+    subject: 'You have received an invite',
     html: `<center>
     <p>
       Greetings from the Hapachat team,
