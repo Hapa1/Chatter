@@ -13,7 +13,7 @@ const InfoBar = ( {room} ) => {
     const [modalActive, setModalActive] = useState(false);
     
    
-    const activateModal = () => {
+    const activateModal = (e) => {
         setModalActive(true);
         const myModal = document.getElementById('modalContainer');
         const myModalBackground = document.getElementById('modalBackground');
@@ -23,7 +23,7 @@ const InfoBar = ( {room} ) => {
         myModalBackground.style.animation = "backgroundfadein .5s";
     }; 
 
-    const deactivateModal = () => {
+    const deactivateModal = (e) => {
         setModalActive(false);
         const myModal = document.getElementById('modalContainer');
         const myModalBackground = document.getElementById('modalBackground');
@@ -32,6 +32,10 @@ const InfoBar = ( {room} ) => {
         myModalBackground.style.visibility = "hidden";
         myModalBackground.style.animation = "";
     };
+
+    const print = () => {
+        console.log("Hi")
+    }
 
     return(
     <div className="infoBar">
@@ -46,7 +50,7 @@ const InfoBar = ( {room} ) => {
             className='modalBackground'>
             </div>
             <div id='modalContainer' className='modalContainer'>
-                <Modal room={room}/>
+                <Modal deactivateModal={deactivateModal} room={room}/>
             </div>     
 
             <a href="/"><img src={closeIcon} alt="close icon" /></a>

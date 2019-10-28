@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import closeIcon from '../../icons/closeIcon.png';
+import { IoIosClose } from "react-icons/io";
 
 import './Modal.css'
 
-const Modal = ( {room} ) => {
+const Modal = ( {room, print, deactivateModal} ) => {
 
     const [input, setInput] = useState('');
     const [emails, setEmails] = useState([]);
@@ -14,19 +15,30 @@ const Modal = ( {room} ) => {
     }
 
     const removeEmail = (email) => {
-        const element = document.getElementById(email);
-        element.parentElement.removeChild(element);
-        emails.splice(emails.indexOf(email),1);
+        if(email){
+            const element = document.getElementById(email);
+            console.log("element",element)
+            console.log("parent element",element.parentElement)
+            element.parentElement.removeChild(element);
+            
+            emails.splice(emails.indexOf(email),1);
+        }
+        
     }
 
     const emailList = emails.map( email => {
         return(
+        <div key={email}>
         <span id={email} key={email} className="email">{email} <img onClick={e=>{removeEmail(email)}}src={closeIcon} alt="close icon" /></span>
+        </div>
         )
     });
 
     return (
     <div id="modalBox">
+    <span className="exitButtonArea" onClick={e=>deactivateModal()}>
+        <IoIosClose style={{fontSize:'24px'}}className='Icon'></IoIosClose>
+    </span>
         <center><h3>Invite Friends</h3></center>
         <textarea id="modalInput" rows="1" cols="50" className="modalInput" placeholder="Type an email..." type='text'
             onKeyPress={e => {if(e.key=='Enter' || e.key==' '){ 
