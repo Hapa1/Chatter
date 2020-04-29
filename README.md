@@ -4,6 +4,8 @@ HapaChat is a webapp for connecting individuals during quarantine.
 
 Use this [link](https://5d9acb4fd64adca3fe11d0c2--hungry-feynman-6955e4.netlify.app/?fbclid=IwAR1WAUm7pmJ4nrbteAbRWuXGHI7l34Kyf1JaZjjO87Xl-RqAYgRGrYK3aLI) to access a live demo.
 
+![GitHub Logo](https://www.moorenets.com/hapa.png)
+
 ## Installation
 
 Clone the repository and install all server-side dependencies using npm.
